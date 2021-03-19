@@ -5,7 +5,8 @@ interface TaskAgile {
    source?:string
    assignee:string,
    progress:number,
-   priority: priorityType
+   priority: priorityType,
+   notes?:string
 }
 
 interface ProjectTemplate {
