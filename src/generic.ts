@@ -1,3 +1,4 @@
+import {TaskAgile} from './Interface.js'
 
 const names:Array<string> = ['yass', 'ali']
 

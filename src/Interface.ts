@@ -1,7 +1,8 @@
-// import {Logger} from './decorator'
+import * as Deco from './decorator.js'
+
 type priorityType = 'high' | 'low' | 'normal'
 
-interface TaskAgile {
+export interface TaskAgile {
    source?:string
    assignee:string,
    progress:number,
@@ -9,19 +10,21 @@ interface TaskAgile {
    notes?:string
 }
 
-interface ProjectTemplate {
+type projectType = 'agile'|'waterfall'|'study'
+export interface ProjectTemplate {
    title:string,
    owner:string,
-   collaborators:string[]
+   collaborators:string[],
+   type:projectType
 }
 
-// @Logger('111')
-// @WithTemplate('<h1> some Deco</h1>','app')
-class ProjectManagement implements ProjectTemplate {
+@Deco.Logger('initializing project') @Deco.WithTemplate('<h1>Some Decoration project</h1>','app')
+export class ProjectManagement implements ProjectTemplate {
    public task:TaskAgile
    public title
    owner
    collaborators
+   type
    private kpi:{total: number, firstDate:Date} = {total:0, firstDate:new Date()}
 
 
@@ -29,6 +32,8 @@ class ProjectManagement implements ProjectTemplate {
       this.task = task
       this.id = +(Math.random()*10).toFixed(2)
       this.collaborators = project.collaborators
+      this.type = project.type
+      this.owner = project.owner
    }
 
    // @LogKPI
@@ -38,6 +43,7 @@ class ProjectManagement implements ProjectTemplate {
 
 }
 
-const project = new ProjectManagement({assignee:'yass', progress:55,priority:"normal"},1,{collaborators:[],owner:'test',title:'proj'})
-let nullish = project ?? 'default'
-console.log(project)
+// const project = new ProjectManagement({assignee:'yass', progress:55,priority:"normal"},1,{collaborators:[],owner:'test',title:'proj'})
+// let nullish = project ?? 'default'
+// console.log(project)
+
