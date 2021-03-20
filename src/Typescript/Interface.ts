@@ -37,10 +37,10 @@ export class ProjectManagement implements ProjectTemplate {
       this.owner = project.owner
    }
 
-   // @LogKPI
    addTask(task:TaskAgile):void {
       this.task.push(task)
    }
+   // @LogKPI
    createKPI() {
       console.log('creating project KPI')
    }
