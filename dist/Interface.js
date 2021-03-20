@@ -7,7 +7,8 @@ class ProjectManagement {
         this.id = +(Math.random() * 10).toFixed(2);
         this.collaborators = project.collaborators;
     }
-    create() {
+    createKPI() {
+        console.log('creating project KPI');
     }
 }
 const project = new ProjectManagement({ assignee: 'yass', progress: 55, priority: "normal" }, 1, { collaborators: [], owner: 'test', title: 'proj' });

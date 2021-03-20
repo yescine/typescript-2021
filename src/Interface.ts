@@ -1,4 +1,4 @@
-// import {Task as Tasks} from './coreObjectType'
+// import {Logger} from './decorator'
 type priorityType = 'high' | 'low' | 'normal'
 
 interface TaskAgile {
@@ -15,6 +15,8 @@ interface ProjectTemplate {
    collaborators:string[]
 }
 
+// @Logger('111')
+// @WithTemplate('<h1> some Deco</h1>','app')
 class ProjectManagement implements ProjectTemplate {
    public task:TaskAgile
    public title
@@ -29,8 +31,9 @@ class ProjectManagement implements ProjectTemplate {
       this.collaborators = project.collaborators
    }
 
-   create() {
-
+   // @LogKPI
+   createKPI() {
+      console.log('creating project KPI')
    }
 
 }
