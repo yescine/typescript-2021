@@ -20,7 +20,7 @@ export interface ProjectTemplate {
 
 @Deco.Logger('initializing project') @Deco.WithTemplate('<h1>Some Decoration project</h1>','app')
 export class ProjectManagement implements ProjectTemplate {
-   public task:TaskAgile
+   public task:TaskAgile[]
    public title
    owner
    collaborators
@@ -29,7 +29,8 @@ export class ProjectManagement implements ProjectTemplate {
 
 
    constructor(task:TaskAgile,private readonly id:number, project:ProjectTemplate) {
-      this.task = task
+      this.task=[]
+      this.task.push(task)
       this.id = +(Math.random()*10).toFixed(2)
       this.collaborators = project.collaborators
       this.type = project.type
@@ -37,6 +38,9 @@ export class ProjectManagement implements ProjectTemplate {
    }
 
    // @LogKPI
+   addTask(task:TaskAgile):void {
+      this.task.push(task)
+   }
    createKPI() {
       console.log('creating project KPI')
    }
